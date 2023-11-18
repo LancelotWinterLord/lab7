@@ -1,0 +1,113 @@
+import random
+from collections import Counter
+
+
+# 1
+def text():
+    text_file = open("D:/text.txt", "r")
+    s = text_file.read()
+    print(s)
+    text_file.close()
+
+
+text()
+
+# 2
+lines = open('D:/random.txt').read().splitlines()
+ran_text = random.choice(lines)
+print(ran_text)
+
+
+# 3
+def let_count():
+    upper_file = open("D:/text.txt", "r")
+    data = upper_file.read()
+    count = 0
+    for letter in data:
+        if letter.isupper():
+            count += 1
+    print(count)
+    upper_file.close()
+
+
+let_count()
+
+
+# 4
+def d():
+    file_d = open("D:/file_d.txt", "r")
+    count_strings = 0
+    for line in file_d:
+        if line[0] not in 'D':
+            count_strings += 1
+    file_d.close()
+    print("lines without 'D' = ", count_strings)
+
+
+d()
+
+
+# 5
+def tally():
+    f_words = open("D:/f_word.txt", "r")
+    count1 = 0
+    data1 = f_words.read()
+    words = data1.split()
+    for word in words:
+        if word[-1] == 'f':
+            count1 += 1
+    print(count1)
+    f_words.close()
+
+
+tally()
+
+
+# 6
+def all_none():
+    file_all_none = open("D:/all_none.txt", "r")
+    count2 = 0
+    data2 = file_all_none.read()
+    words1 = data2.split()
+    for word in words1:
+        if word == 'all' or word == 'none':
+            count2 += 1
+    print(count2)
+    file_all_none.close()
+
+
+all_none()
+
+
+# 7
+def word_count(frequency):
+    with open(frequency) as f:
+        return Counter(f.read().split())
+
+
+print("Number of words in the file :", word_count("D:/all_none.txt"))
+
+
+# 8
+def long_word():
+    file_long = open("D:/random.txt", "r")
+    data3 = file_long.read()
+    long = data3.split()
+    print(max(long, key=len))
+
+
+long_word()
+
+
+# 9
+def BJ():
+    file_bj = open("D:/bj.txt", "r")
+    data4 = file_bj.read()
+    new_bj = data4.replace('b', 'j')
+    print(new_bj)
+    file_bj.close()
+
+
+BJ()
+
+# 10
